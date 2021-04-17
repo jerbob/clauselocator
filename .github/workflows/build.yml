@@ -1,0 +1,19 @@
+name: Build containers
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Docker Container
+        run: docker build -t ghcr.io/jerbob/clauselocator .
+
+      - name: Login to Github Container Registry
+        run: echo ${{ secrets.GHTOKEN }} | docker login ghcr.io -u ${{ secrets.GHUSER }} --password-stdin
+
+      - name: Push to Github Container Registry
+        run: docker push ghcr.io/jerbob/clauselocator
