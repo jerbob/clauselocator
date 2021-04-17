@@ -16,7 +16,7 @@ services:
     command: python src/manage.py runserver 0.0.0.0:80
     volumes:
       - .:/app
-      - static:/static
+      - storage:/storage
     depends_on:
       - db
     environment:
@@ -29,9 +29,9 @@ services:
     image: caddy
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - static:/static
+      - storage:/storage
     ports:
       - 8000:80
 
 volumes:
-  static:
+  storage:
