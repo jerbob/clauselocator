@@ -1,6 +1,7 @@
 :80 {
   root * /storage/
   file_server
+  encode gzip
 
   reverse_proxy /api/* api:80
 }
