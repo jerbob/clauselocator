@@ -8,10 +8,8 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = getenv("SECRET_KEY")
 DEBUG = getenv("DEPLOY_ENV") == "dev"
-
 
 ALLOWED_HOSTS = []
 
@@ -24,7 +22,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -72,9 +69,7 @@ USE_L10N = True
 TIME_ZONE = "UTC"
 LANGUAGE_CODE = "en-us"
 
-
 STATIC_URL = "/static/"
 STATIC_ROOT = "/storage/static/"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
