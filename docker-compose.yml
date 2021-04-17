@@ -9,26 +9,19 @@ services:
       - POSTGRES_PASSWORD=clauselocator
 
   api:
-    build:
-      context: .
-      args:
-        - BUILD_ENV=dev
-    command: python src/manage.py runserver 0.0.0.0:80
+    build: .
     volumes:
       - .:/app
       - storage:/storage
     depends_on:
       - db
     environment:
-      - DEPLOY_ENV=dev
       - SECRET_KEY=CorrectHorseBatteryStaple
-      - DJANGO_SETTINGS_MODULE=core.settings
       - DATABASE_URL=postgres://clauselocator:clauselocator@db:5432/clauselocator
 
   caddy:
-    image: caddy
+    build: caddy
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
       - storage:/storage
     ports:
       - 8000:80
