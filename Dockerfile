@@ -14,4 +14,4 @@ RUN set -ex \
   && poetry config virtualenvs.create false \ 
   && poetry install $(test "$BUILD_ENV" = production && echo "--no-dev") --no-root --no-interaction --no-ansi
 
-COPY . /app/
+COPY src /app/src
