@@ -8,5 +8,5 @@ from clauses.views import LocateClauseView
 app_name = "clauses"
 
 urlpatterns = [
-    path("locate/", LocateClauseView.as_view(), name="locate"),
+    path("locate", LocateClauseView.as_view(), name="locate"),
 ]
