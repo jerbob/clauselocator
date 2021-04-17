@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=clauselocator
+      - POSTGRES_DB=clauselocator
+      - POSTGRES_PASSWORD=clauselocator
+
+  web:
+    build:
+      context: .
+      args:
+        - BUILD_ENV=dev
+    command: python src/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      - DEPLOY_ENV=dev
+      - SECRET_KEY=CorrectHorseBatteryStaple
+      - DJANGO_SETTINGS_MODULE=core.settings
+      - DATABASE_URL=postgres://clauselocator:clauselocator@db:5432/clauselocator
