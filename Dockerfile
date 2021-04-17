@@ -19,3 +19,5 @@ COPY src /app/src
 RUN set -ex \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $BUILD_DEPS \
   && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT [ "/app/src/entrypoint.sh" ]
