@@ -74,7 +74,7 @@ LANGUAGE_CODE = "en-us"
 
 
 STATIC_URL = "/static/"
-STATIC_ROOT = "/static/"
+STATIC_ROOT = "/storage/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
