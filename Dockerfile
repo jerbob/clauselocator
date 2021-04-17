@@ -21,3 +21,4 @@ RUN set -ex \
   && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT [ "/app/src/entrypoint.sh" ]
+CMD [ "gunicorn", "-w", "12", "core.wsgi" ]

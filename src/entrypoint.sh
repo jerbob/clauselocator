@@ -1,8 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 echo -n "Waiting for postgres... "
 
-while ! nc -z db 5432
+IFS=':/@' read DB _ _ USER PASSWORD HOST PORT _ <<< $DATABASE_URL
+
+while ! nc -z $HOST $PORT
 do
   # Wait for postgres port to open
   sleep 0.1
