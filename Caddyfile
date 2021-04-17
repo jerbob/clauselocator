@@ -1,9 +1,6 @@
 :80 {
-  reverse_proxy /api/* api:80
-}
-
-:80/static {
-  root * /static/
+  root * /storage/
   file_server
-  encode gzip
+
+  reverse_proxy /api/* api:80
 }
