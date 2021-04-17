@@ -12,7 +12,7 @@ RUN set -ex \
   && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python \
   && . $HOME/.poetry/env \
   && poetry config virtualenvs.create false \ 
-  && poetry install $(test "$BUILD_ENV" = production && echo "--no-dev") --no-root --no-interaction --no-ansi
+  && poetry install $(test "$BUILD_ENV" != "dev"  && echo "--no-dev") --no-root --no-interaction --no-ansi
 
 COPY src /app/src
 
