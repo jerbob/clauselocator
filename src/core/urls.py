@@ -4,5 +4,5 @@ from django.urls import include, path
 
 
 urlpatterns = [
-    path("clauses/", include("clauses.urls", namespace="clauses")),
+    path("api/clauses/", include("clauses.urls", namespace="clauses")),
 ]
