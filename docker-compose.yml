@@ -9,9 +9,8 @@ services:
       - POSTGRES_PASSWORD=clauselocator
 
   api:
-    build: .
+    image: ghcr.io/jerbob/clauselocator
     volumes:
-      - .:/app
       - storage:/storage
     depends_on:
       - db
@@ -20,7 +19,7 @@ services:
       - DATABASE_URL=postgres://clauselocator:clauselocator@db:5432/clauselocator
 
   caddy:
-    build: caddy
+    image: ghcr.io/jerbob/caddy
     volumes:
       - storage:/storage
     ports:
