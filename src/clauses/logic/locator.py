@@ -67,17 +67,17 @@ class Word:
     @classmethod
     def from_string(cls, string: str) -> Generator["Word", None, None]:
         """Given a string, yield all contained Words."""
-        word: list[IndexedChar] = []
+        word: tuple[IndexedChar, ...] = ()
 
         for index, character in strip_punctuation(enumerate(string.lower())):
             if character not in WORD_CHARS and word:
-                yield cls(tuple(word.copy()))
-                word.clear()
+                yield cls(word)
+                word = ()
                 continue
-            word.append((index, character))
+            word += ((index, character),)
 
         if word:
-            yield cls(tuple(word))
+            yield cls(word)
 
     def __eq__(self, other: Any) -> bool:
         """Check that two words are equal."""
