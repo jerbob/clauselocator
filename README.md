@@ -10,7 +10,7 @@ $ docker-compose up -d
 $ curl -X POST \
     -s localhost:8000/api/clauses/locate \
     -F 'clause=ipsum' -F 'context=lorem ipsum' \
-    | jq
+  | jq
 ```
 ```json
 {
@@ -30,7 +30,7 @@ $ docker-compose up -d
 $ curl -X POST \
     -s localhost:$CLAUSES_LISTEN_PORT/api/clauses/locate \
     -F 'clause=ipsum' -F 'context=lorem ipsum' \
-    | jq
+  | jq
 ```
 ```json
 {
