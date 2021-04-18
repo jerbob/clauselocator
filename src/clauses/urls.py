@@ -4,7 +4,6 @@ from django.urls import re_path
 
 from clauses.views import LocateClauseView
 
-
 app_name = "clauses"
 
 urlpatterns = [

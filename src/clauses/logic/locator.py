@@ -1,12 +1,12 @@
 """Utility methods for use in the 'clauses' app."""
 
-import itertools, string
+import itertools
+import string
 from dataclasses import InitVar, dataclass, field
 from typing import Any, Final, Generator, Optional
 
 from clauses.hints import IndexedChar
 from clauses.logic.utils import sentence_matches_clause, strip_punctuation
-
 
 WORD_CHARS: Final[str] = string.ascii_lowercase + string.digits
 

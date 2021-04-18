@@ -3,8 +3,8 @@
 from string import punctuation
 from typing import Generator, Iterable
 
-from clauses.logic import locator
 from clauses.hints import IndexedChar
+from clauses.logic import locator
 
 
 def strip_punctuation(
