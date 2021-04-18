@@ -7,7 +7,6 @@ from typing import Generator, Iterable
 from clauses.hints import IndexedChar
 from clauses.logic import locator
 
-
 __all__ = ["strip_punctuation", "sentence_matches_clause"]
 
 

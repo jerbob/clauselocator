@@ -58,11 +58,11 @@ class ClauseLocator:
         return first[0][0], last[-1][0]
 
 
-@dataclass
+@dataclass(frozen=True)
 class Word:
     """Represents a collection of IndexedChars bounded by whitespace."""
 
-    characters: list[IndexedChar] = field(default_factory=list)
+    characters: tuple[IndexedChar, ...] = ()
 
     @classmethod
     def from_string(cls, string: str) -> Generator["Word", None, None]:
@@ -71,13 +71,13 @@ class Word:
 
         for index, character in strip_punctuation(enumerate(string.lower())):
             if character not in WORD_CHARS and word:
-                yield cls(word.copy())
+                yield cls(tuple(word.copy()))
                 word.clear()
                 continue
             word.append((index, character))
 
         if word:
-            yield cls(word)
+            yield cls(tuple(word))
 
     def __eq__(self, other: Any) -> bool:
         """Check that two words are equal."""
@@ -91,4 +91,5 @@ class Word:
 
     def __getitem__(self, index: Any) -> IndexedChar:
         """Slicing on this Word should apply to its characters."""
-        return self.characters[index]
+        index, character = self.characters[index]
+        return (index, character)
