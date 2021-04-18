@@ -2,7 +2,7 @@ test:
 	cd src && \
 	DJANGO_SETTINGS_MODULE='core.settings' \
 	DATABASE_URL='sqlite://:memory:' \
-	coverage run -m pytest
+	coverage run -m pytest --cov=.
 
 lint:
 	flake8 --ignore=src && \
