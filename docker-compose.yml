@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: postgres:13.2
     environment:
       - POSTGRES_USER=clauselocator
       - POSTGRES_DB=clauselocator
@@ -29,7 +29,7 @@ services:
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
+    command: --interval 30 api caddy
 
 volumes:
   storage:
