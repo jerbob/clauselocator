@@ -9,17 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Build Django app container
-        run: docker build -t ghcr.io/jerbob/clauselocator .
-
-      - name: Build Caddy container
-        run: docker build -t ghcr.io/jerbob/caddy caddy
-
       - name: Login to Github Container Registry
         run: echo ${{ secrets.GHTOKEN }} | docker login ghcr.io -u ${{ secrets.GHUSER }} --password-stdin
 
-      - name: Push to Github Container Registry
-        run: docker push ghcr.io/jerbob/clauselocator && docker push ghcr.io/jerbob/caddy
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build project containers
+        run: make build
+
+      - name: Deploy to Github Container Registry
+        run: make deploy
