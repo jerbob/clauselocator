@@ -3,7 +3,10 @@
 from os import getenv
 from pathlib import Path
 
-import dj_database_url
+import dj_database_url  # type: ignore
+
+# Type stubs for dj_database_url are missing.
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEPLOY_ENV = getenv("DEPLOY_ENV")
