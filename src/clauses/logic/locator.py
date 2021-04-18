@@ -38,7 +38,6 @@ class ClauseLocator:
                 if not sentence_matches_clause(sentence, self.clause):
                     previous_match = sentence[:-1]
 
-                    # Ensure the previous sentence was matching
                     # This method implements an LRU cache, so no compute is repeated.
                     if sentence_matches_clause(previous_match, self.clause):
                         sentences.append(previous_match)
