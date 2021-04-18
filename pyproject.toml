@@ -22,6 +22,10 @@ django-stubs = "^1.8.0"
 ipython = "^7.22.0"
 djangorestframework-stubs = "^1.4.0"
 pytest-django = "^4.2.0"
+coverage = "^5.5"
+
+[tool.pytest.ini_options]
+python_files = "tests.py test_*.py *_tests.py"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
