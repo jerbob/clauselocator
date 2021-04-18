@@ -5,11 +5,11 @@ from pathlib import Path
 
 import dj_database_url
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
+DEPLOY_ENV = getenv("DEPLOY_ENV")
 
 SECRET_KEY = getenv("SECRET_KEY")
-DEBUG = getenv("DEPLOY_ENV") == "dev"
+DEBUG = DEPLOY_ENV == "dev"
 
 ALLOWED_HOSTS = ["localhost", "clauses.jerbob.me"]
 
