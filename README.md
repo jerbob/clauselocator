@@ -7,7 +7,10 @@ $ wget clauses.jerbob.me/docker-compose.yml
 
 $ docker-compose up -d
 
-$ curl -X POST -s localhost:8000/api/clauses/locate -F 'clause=ipsum' -F 'context=lorem ipsum' | jq
+$ curl -X POST \
+    -s localhost:8000/api/clauses/locate \
+    -F 'clause=ipsum' -F 'context=lorem ipsum' \
+    | jq
 {
   "success": true,
   "results": [
@@ -22,7 +25,10 @@ By default, the web server will be listening on port `8000`. Set `CLAUSES_LISTEN
 $ export CLAUSES_LISTEN_PORT=8080
 $ docker-compose up -d
 
-$ curl -X POST -s localhost:$CLAUSES_LISTEN_PORT/api/clauses/locate -F 'clause=ipsum' -F 'context=lorem ipsum' | jq
+$ curl -X POST \
+    -s localhost:$CLAUSES_LISTEN_PORT/api/clauses/locate \
+    -F 'clause=ipsum' -F 'context=lorem ipsum' \
+    | jq
 {
   "success": true,
   "results": [
