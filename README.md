@@ -1,5 +1,5 @@
 ## Deployment
-The [`docker-compose.yml`](https://raw.githubusercontent.com/jerbob/clauselocator/main/docker-compose.yml) in this project contains the minimal configuration to deploy this project, independent of source code.
+The [`docker-compose.yml`](https://raw.githubusercontent.com/jerbob/clauselocator/main/docker-compose.yml) in this project contains the minimal configuration to deploy this project.
 
 To deploy this project with compose, copy this `docker-compose.yml` and bring up the containers:
 ```sh
