@@ -23,7 +23,7 @@ services:
     volumes:
       - storage:/storage
     ports:
-      - 8000:80
+      - ${CLAUSES_LISTEN_PORT-8000}:80
 
   watchtower:
     image: containrrr/watchtower
