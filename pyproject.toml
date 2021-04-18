@@ -23,6 +23,7 @@ ipython = "^7.22.0"
 djangorestframework-stubs = "^1.4.0"
 pytest-django = "^4.2.0"
 coverage = "^5.5"
+pytest-cov = "^2.11.1"
 
 [tool.pytest.ini_options]
 python_files = "tests.py test_*.py *_tests.py"
