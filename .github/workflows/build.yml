@@ -21,6 +21,9 @@ jobs:
       - name: Deploy to Github Container Registry
         run: make deploy-live
 
+      - name: Setup python
+        uses: actions/setup-python@v1
+
       - name: Install poetry and project dependencies
         uses: knowsuchagency/poetry-install@v1
         env:
